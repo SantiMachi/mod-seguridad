@@ -1,0 +1,38 @@
+[
+    {
+        "id": 2,
+        "nombre": "Base de datos de clientes",
+        "tipo": "base de datos",
+        "responsable": "Juan P\u00e9rez",
+        "ubicacion": "Servidor Central",
+        "confidencialidad": 3,
+        "integridad": 2,
+        "disponibilidad": 2,
+        "clasificacion": 2.4,
+        "fecha_registro": "2025-05-23T02:10:58.229420"
+    },
+    {
+        "id": 1,
+        "nombre": "abc",
+        "tipo": "abc",
+        "responsable": "abc",
+        "ubicacion": "abc",
+        "confidencialidad": 1,
+        "integridad": 2,
+        "disponibilidad": 1,
+        "clasificacion": 1.3,
+        "fecha_registro": "2025-05-23T02:20:47.841009"
+    },
+    {
+        "id": 3,
+        "nombre": "bueno xd",
+        "tipo": "bueno 2",
+        "responsable": "b",
+        "ubicacion": "b",
+        "confidencialidad": 3,
+        "integridad": 3,
+        "disponibilidad": 3,
+        "clasificacion": 3.0,
+        "fecha_registro": "2025-05-23T02:22:53.797435"
+    }
+]
