@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Activos de Información</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Subir Activos de Información</h1>
+    <input type="file" id="csvFile" accept=".csv" />
+    <button onclick="procesarCSV()">Procesar CSV</button>
+
+    <table id="tablaActivos">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Propietario</th>
+                <th>Autorizador</th>
+                <th>Comentarios</th>
+                <th>Estado</th>
+                <th>Clasificación</th>
+                <th>Clasificar</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <button onclick="descargarExcel()">Descargar Excel Clasificado</button>
+
+    <!-- Modal de clasificación -->
+    <div id="modalClasificacion" class="modal">
+        <div class="modal-content">
+            <h2>Clasificar Activo</h2>
+            <p id="nombreActivo"></p>
+            <form id="formClasificacion">
+                <div class="form-group">
+                    <div class="form-group-title">Confidencialidad</div>
+                    <label>¿El activo contiene información sensible?
+                        <select id="confidencialidad1" required>
+                            <option value="1">No tiene</option>
+                            <option value="2">Tiene poca</option>
+                            <option value="3">Mucha información sensible</option>
+                        </select>
+                    </label><br />
+                    <label>¿El acceso no autorizado al activo tendría consecuencias graves?
+                        <select id="confidencialidad2" required>
+                            <option value="1">No</option>
+                            <option value="2">Moderado</option>
+                            <option value="3">Sí</option>
+                        </select>
+                    </label><br />
+                </div>
+                <div class="form-group">
+                    <div class="form-group-title">Integridad</div>
+                    <label>¿El activo debe mantenerse libre de modificaciones no autorizadas?
+                        <select id="integridad1" required>
+                            <option value="1">Poco importante</option>
+                            <option value="2">Moderadamente importante</option>
+                            <option value="3">Muy importante</option>
+                        </select>
+                    </label><br />
+                    <label>¿Errores en el activo podrían causar decisiones equivocadas?
+                        <select id="integridad2" required>
+                            <option value="1">No</option>
+                            <option value="2">A veces</option>
+                            <option value="3">Sí</option>
+                        </select>
+                    </label><br />
+                </div>
+                <div class="form-group">
+                    <div class="form-group-title">Disponibilidad</div>
+                    <label>¿El activo necesita estar siempre disponible?
+                        <select id="disponibilidad1" required>
+                            <option value="1">No</option>
+                            <option value="2">Sí, en horario laboral</option>
+                            <option value="3">Sí, 24/7</option>
+                        </select>
+                    </label><br />
+                    <label>¿Una interrupción afectaría a los procesos críticos?
+                        <select id="disponibilidad2" required>
+                            <option value="1">Poco</option>
+                            <option value="2">Moderadamente</option>
+                            <option value="3">Gravemente</option>
+                        </select>
+                    </label><br />
+                </div>
+                <div class="form-group">
+                    <div class="form-group-title">Privacidad</div>
+                    <label>¿Contiene información personal de clientes o usuarios?
+                        <select id="privacidad" required>
+                            <option value="1">No</option>
+                            <option value="2">Sí, limitada</option>
+                            <option value="3">Sí, sensible</option>
+                        </select>
+                    </label><br />
+                </div>
+                <input type="hidden" id="indexActivo" />
+                <button type="submit">Calcular Clasificación</button>
+                <button type="button" onclick="cerrarModal()">Cancelar</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
